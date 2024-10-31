@@ -8,6 +8,7 @@ import mongoose from "./config/db-connection.js"; //importação Mongoose
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+
 // Definindo porta que a API vai rodar, no caso 4000
 const port = 4000;
 app.listen(port, (error) => {

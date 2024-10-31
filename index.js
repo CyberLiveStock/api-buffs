@@ -1,7 +1,7 @@
 import express from "express"; //importação framework
 const app = express();
 
-import mongoose from "mongoose"; //importação Mongoose
+import mongoose from "./config/db-connection.js"; //importação Mongoose
 
 
 //Configuração da Framework(express)

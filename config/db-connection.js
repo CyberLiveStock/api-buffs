@@ -13,7 +13,7 @@ connection.on("error", () => {
 
 //Sucesso em Conectar com o banco
 connection.on("open", () => {
-    console.log("Conectando ao mongoDB Atlas com sucesso!")
+    console.log("Conectado ao mongoDB Atlas com sucesso!")
 });
 
 export default mongoose;

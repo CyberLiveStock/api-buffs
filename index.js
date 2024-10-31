@@ -1,6 +1,7 @@
 import express from "express"; //importação framework
 const app = express();
-import bufaloRoutes from "./routes/bufaloRoutes.js";
+import bufaloRoutes from "./routes/bufaloRoutes.js"; //importação dos Endpoints "Bufalos"
+import criadouroRoutes from "./routes/criadouroRoutes.js"; //importação dos Endpoints "Criadouros"
 import mongoose from "./config/db-connection.js"; //importação Mongoose
 
 
@@ -8,6 +9,8 @@ import mongoose from "./config/db-connection.js"; //importação Mongoose
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/", bufaloRoutes)
+app.use("/", criadouroRoutes)
+
 
 
 // Definindo porta que a API vai rodar, no caso 4000

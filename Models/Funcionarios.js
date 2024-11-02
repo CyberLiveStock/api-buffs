@@ -1,5 +1,13 @@
 import mongoose from "mongoose";
 
+const descEndSchema = new mongoose.Schema({
+    rua: String,  
+    bairro: String,
+    cidade: String,
+    estado: String,
+    numero: Number,
+})
+
 const funcionarioSchema  = new mongoose.Schema({
     idCriadouro: String, //ATENÇÃO: ALTERAR PARA PEGAR O OBJECTID DE Criadouro
     nome: String,
@@ -9,12 +17,9 @@ const funcionarioSchema  = new mongoose.Schema({
     descCargo: String,
     telefone: Number,
     dataNasc: Date,
-    rua: String,  
-    bairro: String,
-    cidade: String,
-    estado: String,
-    numero: Number,
+    endereco: [descEndSchema] //Documento aninhado de Endereço
 })
+
 
 const Funcionario = mongoose.model('Funcionario', funcionarioSchema)
 export default Funcionario

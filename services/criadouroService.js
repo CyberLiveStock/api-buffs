@@ -12,7 +12,7 @@ class criadouroService {
     }
 
 
-    //Método para Cadastrar novo Bufalo na API
+    //Método para Cadastrar novo Criadouro na API
     async Create(idProprietario, nome, rua, bairro, cidade, estado, numero) {
         try {
             const newCriadouro = new Criadouro({
@@ -30,7 +30,7 @@ class criadouroService {
         }
     }
 
-    //Método para Deletar um Bufalo da API
+    //Método para Deletar um Criadouro da API
     async Delete(id) {
         try{
             await Criadouro.findByIdAndDelete(id);
@@ -40,7 +40,7 @@ class criadouroService {
         }
     }
 
-    //Método para Atualizar um Bufalo da API
+    //Método para Atualizar um Criadouro da API
     async Update(id, idProprietario, nome, rua, bairro, cidade, estado, numero){
         try{
             const UpdateCriadouro = await Criadouro.findByIdAndUpdate(

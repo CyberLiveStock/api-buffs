@@ -5,7 +5,7 @@ const financieroSchema  = new mongoose.Schema({
     categoria: String,
     descricao: String,
     beneficiario: String,
-    valor: Float,
+    valor: Number,
     tipo: String,
     status: String,
     idFuncionario: String

@@ -18,7 +18,7 @@ const sanitarioSchema = new mongoose.Schema({
     loteMedicamento: String,
     dataAplicacao: Date,
     dataRetorno: Date,
-    idTratador: String  //ATENÇÃO: ALTERAR PARA PEGAR O OBJECTID DE FUNCIONARIO
+    idFunionario: String  //ATENÇÃO: ALTERAR PARA PEGAR O OBJECTID DE FUNCIONARIO
 })
 
 const bufaloSchema  = new mongoose.Schema({

@@ -5,7 +5,8 @@ import bufaloRoutes from "./routes/bufaloRoutes.js"; //importação dos Endpoint
 import criadouroRoutes from "./routes/criadouroRoutes.js"; //importação dos Endpoints "Criadouros"
 import funcionarioRoutes from "./routes/funcionarioRoutes.js"; //importação dos Endpoints "Funcionarios"
 import proprietarioRoutes from "./routes/proprietarioRoutes.js"; //importação dos Endpoints "Proprietaios"
-import reproducaoRoutes from "./routes/reproducaoRoutes.js";
+import reproducaoRoutes from "./routes/reproducaoRoutes.js"; //importação dos Endpoints "Reproducoes"
+import financeiroRoutes from "./routes/financeiroRoutes.js"; //importação dos Endpoints "Financieros"
 
 
 //Configuração da Framework(express)
@@ -16,6 +17,7 @@ app.use("/", criadouroRoutes)
 app.use("/", funcionarioRoutes)
 app.use("/", proprietarioRoutes)
 app.use("/", reproducaoRoutes)
+app.use("/", financeiroRoutes)
 
 
 // Definindo porta que a API vai rodar, no caso 4000

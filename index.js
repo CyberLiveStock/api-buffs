@@ -7,7 +7,9 @@ import funcionarioRoutes from "./routes/funcionarioRoutes.js"; //importação do
 import proprietarioRoutes from "./routes/proprietarioRoutes.js"; //importação dos Endpoints "Proprietaios"
 import reproducaoRoutes from "./routes/reproducaoRoutes.js"; //importação dos Endpoints "Reproducoes"
 import financeiroRoutes from "./routes/financeiroRoutes.js"; //importação dos Endpoints "Financieros"
+import cors from "cors"
 
+app.use(cors())
 
 //Configuração da Framework(express)
 app.use(express.urlencoded({ extended: false }));

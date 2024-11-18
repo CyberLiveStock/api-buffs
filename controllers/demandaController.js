@@ -1,22 +1,22 @@
-import bufaloService from "../services/bufaloService.js";
+import demandaService from "../services/DemandaService.js";
 import { ObjectId } from "mongodb";
 
-//Listar todos os Bufalos
-const getAllBufalos = async (req, res) => {
+//Listar todos os Demandas
+const getAllDemandas = async (req, res) => {
     try{
-        const bufalos = await bufaloService.getAll();
-        res.status(200).json({ bufalos: bufalos }); // Cod. 200 (OK)
+        const demandas = await demandaService.getAll();
+        res.status(200).json({ demandas : demandas }); // Cod. 200 (OK)
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: "Erro interno do servidor. "}); // Cod. 500 (Internal Server Error)
     }
 };
 
-//Adicionar um Bufalo
-const createBufalo = async (req, res) => {
+//Adicionar um Demanda
+const createDemanda = async (req, res) => {
     try{
-        const {tagBufalo, idCriadouro, nome, idade, peso, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario} = req.body;
-        await bufaloService.Create(tagBufalo, idCriadouro, nome, idade, peso, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario);
+        const {dataInicio, dataFim, descricao, idFuncionario, categoria, status} = req.body;
+        await demandaService.Create(dataInicio, dataFim, descricao, idFuncionario, categoria, status);
         res.sendStatus(201);// Cód. 201 (Created)
     } catch (error) {
         console.log(error);
@@ -24,12 +24,12 @@ const createBufalo = async (req, res) => {
     }
 };
 
-//Deletar um Bufalo
-const deleteBufalo = async (req, res) => {
+//Deletar um Demanda
+const deleteDemanda = async (req, res) => {
     try{
         if(ObjectId.isValid(req.params.id)){
             const id = req.params.id
-            bufaloService.Delete(id)
+            demandaService.Delete(id)
             res.sendStatus(204) // Cód. 204 (No Content)
         }else{
             res.sendStatus(400) // Cód. 400 (Bad Request)
@@ -40,14 +40,14 @@ const deleteBufalo = async (req, res) => {
     }
 };
 
-//Atualizar um Bufalo
-const updateBufalo = async (req, res) => {
+//Atualizar um Demanda
+const updateDemanda = async (req, res) => {
     try{
         if (ObjectId.isValid(req.params.id)) {
             const id = req.params.id;
-            const {tagBufalo, idCriadouro, nome, idade, peso, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario} = req.body;
-            const bufalo = await bufaloService.Update(id, tagBufalo, idCriadouro, nome, idade, peso, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario);
-            res.status(200).json({ bufalo }); //Cód. 200 (OK)
+            const {dataInicio, dataFim, descricao, idFuncionario, categoria, status} = req.body;
+            const demanda = await demandaService.Update(id, dataInicio, dataFim, descricao, idFuncionario, categoria, status);
+            res.status(200).json({ demanda }); //Cód. 200 (OK)
         } else {
             res.sendStatus(400); //Cód. 400 (Bad request)
         }
@@ -57,16 +57,16 @@ const updateBufalo = async (req, res) => {
     }
 };
 
-//Listar um único Bufalo
-const getOneBufalo = async (req, res) => {
+//Listar um único Demanda
+const getOneDemanda = async (req, res) => {
     try{
         if (ObjectId.isValid(req.params.id)) {
             const id = req.params.id
-            const bufalo = await bufaloService.getOne(id)
-            if (!bufalo) {
+            const demanda = await demandaService.getOne(id)
+            if (!demanda) {
                 res.sendStatus(404) //Cód. 404 (Not Found)
             } else {
-                res.status(200).json({ bufalo }) //Cód. 200 (OK)
+                res.status(200).json({ demanda }) //Cód. 200 (OK)
             }
         } else {
             res.sendStatus(400) //Cód. 400 (Bad Request)
@@ -78,4 +78,4 @@ const getOneBufalo = async (req, res) => {
 };
 
 
-export default { getAllBufalos, createBufalo, deleteBufalo, updateBufalo, getOneBufalo };
+export default { getAllDemandas, createDemanda, deleteDemanda, updateDemanda, getOneDemanda };

@@ -17,6 +17,7 @@ const funcionarioSchema  = new mongoose.Schema({
     descCargo: String,
     telefone: Number,
     dataNasc: Date,
+    status: String,
     endereco: [descEndSchema] //Documento aninhado de Endereço
 })
 

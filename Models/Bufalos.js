@@ -30,6 +30,7 @@ const bufaloSchema  = new mongoose.Schema({
     raca: String,
     sexo: String,
     dataNasc: Date,
+    destinoFinal: String,
     zootecnico: [zootecnicoSchema],
     sanitario: [sanitarioSchema]
 })

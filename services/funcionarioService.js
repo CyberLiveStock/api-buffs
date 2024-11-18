@@ -13,10 +13,10 @@ class funcionarioService {
 
 
     //Método para Cadastrar novo Funcionario na API
-    async Create(idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, endereco) {
+    async Create(idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, status, endereco) {
         try {
             const newFuncionario = new Funcionario({
-                idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, endereco
+                idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, status, endereco
             })
             await newFuncionario.save()
         } catch (error) {
@@ -35,12 +35,12 @@ class funcionarioService {
     }
 
     //Método para Atualizar um Funcionario da API
-    async Update(id, idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, endereco){
+    async Update(id, idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, status, endereco){
         try{
             const UpdateFuncionario = await Funcionario.findByIdAndUpdate(
                 id,
                 {
-                    idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, endereco
+                    idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, status, endereco
                 },
                 { new: true }
             );

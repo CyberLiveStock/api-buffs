@@ -7,6 +7,7 @@ import funcionarioRoutes from "./routes/funcionarioRoutes.js"; //importação do
 import proprietarioRoutes from "./routes/proprietarioRoutes.js"; //importação dos Endpoints "Proprietaios"
 import reproducaoRoutes from "./routes/reproducaoRoutes.js"; //importação dos Endpoints "Reproducoes"
 import financeiroRoutes from "./routes/financeiroRoutes.js"; //importação dos Endpoints "Financieros"
+import demandaRoutes from "./routes/demandaRoutes.js" //importação dos Endpoints "Demandas"
 import cors from "cors"
 
 app.use(cors())
@@ -20,6 +21,7 @@ app.use("/", funcionarioRoutes)
 app.use("/", proprietarioRoutes)
 app.use("/", reproducaoRoutes)
 app.use("/", financeiroRoutes)
+app.use("/", demandaRoutes)
 
 
 // Definindo porta que a API vai rodar, no caso 4000

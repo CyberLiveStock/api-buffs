@@ -15,8 +15,8 @@ const getAllFuncionarios = async (req, res) => {
 //Adicionar um Funcionario
 const createFuncionario = async (req, res) => {
     try{
-        const {idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, endereco} = req.body;
-        await funcionarioService.Create(idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, endereco);
+        const {idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, status, endereco} = req.body;
+        await funcionarioService.Create(idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, status, endereco);
         res.sendStatus(201);// Cód. 201 (Created)
     } catch (error) {
         console.log(error);
@@ -45,8 +45,8 @@ const updateFuncionario = async (req, res) => {
     try{
         if (ObjectId.isValid(req.params.id)) {
             const id = req.params.id;
-            const {idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, endereco} = req.body;
-            const funcionario = await funcionarioService.Update(id, idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, endereco);
+            const {idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, status, endereco} = req.body;
+            const funcionario = await funcionarioService.Update(id, idCriadouro, nome, cpf, email, genero, descCargo, telefone, dataNasc, status, endereco);
             res.status(200).json({ funcionario }); //Cód. 200 (OK)
         } else {
             res.sendStatus(400); //Cód. 400 (Bad request)

@@ -4,7 +4,7 @@ const demandaSchema  = new mongoose.Schema({
     dataInicio: Date,
     dataFim: Date,
     descricao: String,
-    idFuncionario: String,
+    idFuncionario: { type: mongoose.Schema.Types.ObjectId, ref: "Funcionario" },
     categoria: String,
     status: String
 })

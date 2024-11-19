@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const reproducaoSchema  = new mongoose.Schema({
-    idCriadouro: String, //ATENÇÃO: ALTERAR PARA PEGAR O OBJECTID DE Criadouro
-    tagMae: Number,
-    tagPai: Number,
+    idCriadouro: { type: mongoose.Schema.Types.ObjectId, ref: "Criadouros" }, 
+    tagMae: { type: mongoose.Schema.Types.ObjectId, ref: "Bufalos" },
+    tagPai: { type: mongoose.Schema.Types.ObjectId, ref: "Bufalos" },
     dataInseminacao: Date,
     dataParto: Date,
     status: String,

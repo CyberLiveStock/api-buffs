@@ -1,11 +1,24 @@
 import Reproducao from "../Models/Reproducoes.js"
+import Bufalos from "../Models/Bufalos.js"
+
 
 class reproducaoService {
+    
     //Método para Consultar todos os Reproducoes da API
-    async getAll() {
+ async getAll() {
         try {
             const reproducoes = await Reproducao.find();
-            return reproducoes;
+            const resultados = await Promise.all(reproducoes.map(async (reproducao) => {
+                const mae = await Bufalos.findOne({ tagBufalo: reproducao.tagMae });// Compara as 'tag' e define como mãe
+                const pai = await Bufalos.findOne({ tagBufalo: reproducao.tagPai }); // Compara as 'tag' e define como pai
+
+                return {
+                    ...reproducao.toObject(), // Converte o documento Mongoose para um objeto simples
+                    mae: mae ? mae.toObject() : null, // Dados do búfalo mãe
+                    pai: pai ? pai.toObject() : null  // Dados do búfalo pai
+                };
+            }));
+            return resultados;
         } catch (error) {
             console.log(error);
         }

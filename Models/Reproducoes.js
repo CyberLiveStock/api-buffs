@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const reproducaoSchema  = new mongoose.Schema({
-    idCriadouro: String, //ATENÇÃO: ALTERAR PARA PEGAR O OBJECTID DE Criadouro
+    idCriadouro: String, 
     tagMae: Number,
     tagPai: Number,
     dataInseminacao: Date,

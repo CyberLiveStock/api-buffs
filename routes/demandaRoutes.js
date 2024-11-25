@@ -1,10 +1,14 @@
 import express from 'express';
 const demandaRoutes = express.Router()
 import demandaController from '../controllers/demandaController.js';
-import Demanda from "../Models/Demandas.js";
 
 //Endpoint: Listar todos os Demandas
+<<<<<<< HEAD
 demandaRoutes.get("/demandas", demandaController.getAllDemandas);
+=======
+demandaRoutes.get("/demandas",  demandaController.getAllDemandas);
+
+>>>>>>> 11c3460901b9b1306bff4ca9cafb5a6f85dc456f
 //Endpoint: Cadastrar novo Demanda
 demandaRoutes.post("/demanda", demandaController.createDemanda);
 

@@ -4,7 +4,7 @@ class demandaService {
     //Método para Consultar todos os Demandas da API
     async getAll() {
         try {
-            const demandas = await Demanda.find();
+            const demandas = await Demanda.find().populate("idFuncionario", "nome").exec();
             return demandas;
         } catch (error) {
             console.log(error);

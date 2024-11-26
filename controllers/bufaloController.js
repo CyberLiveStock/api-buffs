@@ -42,18 +42,49 @@ const deleteBufalo = async (req, res) => {
 
 //Atualizar um Bufalo
 const updateBufalo = async (req, res) => {
-    try{
-        if (ObjectId.isValid(req.params.id)) {
-            const id = req.params.id;
-            const {tagBufalo, idCriadouro, nome, idade, peso, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario} = req.body;
-            const bufalo = await bufaloService.Update(id, tagBufalo, idCriadouro, nome, idade, peso, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario);
-            res.status(200).json({ bufalo }); //Cód. 200 (OK)
-        } else {
-            res.sendStatus(400); //Cód. 400 (Bad request)
+    try {
+        const { id } = req.params;
+
+        if (!ObjectId.isValid(id)) {
+            return res.status(400).json({ error: "ID inválido" }); // Cód. 400 (Bad request)
         }
-    }catch (error) {
-        console.log(error);
-        res.sendStatus(500); //Cód. 500 (Internal Server Error)
+
+        const {
+            tagBufalo,
+            idCriadouro,
+            nome,
+            idade,
+            peso,
+            raca,
+            sexo,
+            dataNasc,
+            destinoFinal,
+            zootecnico,
+            sanitario
+        } = req.body;
+
+        const bufalo = await bufaloService.Update(
+            id,
+            tagBufalo,
+            idCriadouro,
+            nome,
+            idade,
+            peso,
+            raca,
+            sexo,
+            dataNasc,
+            destinoFinal,
+            zootecnico,
+            sanitario
+        );
+
+        res.status(200).json({
+            message: "Búfalo atualizado com sucesso!",
+            bufalo
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: error.message || "Erro interno do servidor" }); // Cód. 500 (Internal Server Error)
     }
 };
 

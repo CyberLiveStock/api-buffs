@@ -11,13 +11,14 @@ const descEndSchema = new mongoose.Schema({
 const funcionarioSchema  = new mongoose.Schema({
     idCriadouro: String, //ATENÇÃO: ALTERAR PARA PEGAR O OBJECTID DE Criadouro
     nome: String,
-    cpf: Number,
+    cpf: String,
     email: String,
     genero: String,
     descCargo: String,
-    telefone: Number,
+    telefone: String,
     dataNasc: Date,
     status: String,
+    salario: Number,
     endereco: [descEndSchema] //Documento aninhado de Endereço
 })
 

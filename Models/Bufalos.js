@@ -21,7 +21,7 @@ const sanitarioSchema = new mongoose.Schema({
     idFunionario: String  //ATENÇÃO: ALTERAR PARA PEGAR O OBJECTID DE FUNCIONARIO
 })
 
-const bufaloSchema  = new mongoose.Schema({
+const bufaloSchema = new mongoose.Schema({
     tagBufalo: Number,
     idCriadouro: Number,
     nome: String,
@@ -32,7 +32,9 @@ const bufaloSchema  = new mongoose.Schema({
     dataNasc: Date,
     destinoFinal: String,
     zootecnico: [zootecnicoSchema],
-    sanitario: [sanitarioSchema]
+    sanitario: [sanitarioSchema],
+    historicoZootecnico: [zootecnicoSchema],
+    historicoSanitario: [sanitarioSchema]
 })
 
 const Bufalo = mongoose.model('Bufalo', bufaloSchema)

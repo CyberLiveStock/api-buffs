@@ -1,4 +1,4 @@
-import demandaService from "../services/DemandaService.js";
+import demandaService from "../services/demandaService.js";
 import { ObjectId } from "mongodb";
 
 //Listar todos os Demandas
@@ -77,5 +77,24 @@ const getOneDemanda = async (req, res) => {
     }   
 };
 
+const getRendimento = async (req, res) => {
+    try {
+        const demanda = await demandaService.calcularRendimento();
+        res.status(200).json(demanda);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
-export default { getAllDemandas, createDemanda, deleteDemanda, updateDemanda, getOneDemanda };
+const getRendimentoCategoria = async (req, res) => {
+    try {
+        const demanda = await demandaService.calcularCategoria();
+        res.status(200).json(demanda);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
+
+export default { getAllDemandas, createDemanda, deleteDemanda, updateDemanda, getOneDemanda, getRendimento, getRendimentoCategoria };

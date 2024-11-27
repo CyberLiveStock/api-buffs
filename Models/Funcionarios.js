@@ -13,7 +13,7 @@ const funcionarioSchema  = new mongoose.Schema({
     nome: String,
     cpf: String,
     email: String,
-    genero: String,
+    genero: String, 
     descCargo: String,
     telefone: String,
     dataNasc: Date,

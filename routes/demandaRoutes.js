@@ -17,5 +17,10 @@ demandaRoutes.put("/demanda/:id", demandaController.updateDemanda);
 //Endpoint: Listar um Demanda especifico
 demandaRoutes.get("/demanda/:id", demandaController.getOneDemanda);
 
+//Endpoint: Listar 
+demandaRoutes.get("/demandasGrafFunc", demandaController.getRendimento);
+
+//Endpoint: Listar 
+demandaRoutes.get("/demandasGrafCat", demandaController.getRendimentoCategoria);
 
 export default demandaRoutes

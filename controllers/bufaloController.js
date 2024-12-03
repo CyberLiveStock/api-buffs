@@ -15,8 +15,8 @@ const getAllBufalos = async (req, res) => {
 //Adicionar um Bufalo
 const createBufalo = async (req, res) => {
     try{
-        const {tagBufalo, idCriadouro, nome, idade, peso, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario} = req.body;
-        await bufaloService.Create(tagBufalo, idCriadouro, nome, idade, peso, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario);
+        const {tagBufalo, idCriadouro, nome, idade, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario} = req.body;
+        await bufaloService.Create(tagBufalo, idCriadouro, nome, idade, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario);
         res.sendStatus(201);// Cód. 201 (Created)
     } catch (error) {
         console.log(error);
@@ -54,7 +54,6 @@ const updateBufalo = async (req, res) => {
             idCriadouro,
             nome,
             idade,
-            peso,
             raca,
             sexo,
             dataNasc,
@@ -69,7 +68,6 @@ const updateBufalo = async (req, res) => {
             idCriadouro,
             nome,
             idade,
-            peso,
             raca,
             sexo,
             dataNasc,

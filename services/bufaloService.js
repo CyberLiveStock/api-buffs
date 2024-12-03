@@ -13,14 +13,13 @@ class bufaloService {
 
 
     //Método para Cadastrar novo Bufalo na API
-    async Create(tagBufalo, idCriadouro, nome, idade, peso, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario) {
+    async Create(tagBufalo, idCriadouro, nome, idade, raca, sexo, dataNasc, destinoFinal, zootecnico, sanitario) {
         try {
             const newBufalo = new Bufalo({
                 tagBufalo, 
                 idCriadouro, 
                 nome, 
-                idade, 
-                peso, 
+                idade,  
                 raca, 
                 sexo, 
                 dataNasc,
@@ -51,7 +50,6 @@ class bufaloService {
         idCriadouro,
         nome,
         idade,
-        peso,
         raca,
         sexo,
         dataNasc,
@@ -87,7 +85,6 @@ class bufaloService {
             bufaloExistente.idCriadouro = idCriadouro ?? bufaloExistente.idCriadouro;
             bufaloExistente.nome = nome ?? bufaloExistente.nome;
             bufaloExistente.idade = idade ?? bufaloExistente.idade;
-            bufaloExistente.peso = peso ?? bufaloExistente.peso;
             bufaloExistente.raca = raca ?? bufaloExistente.raca;
             bufaloExistente.sexo = sexo ?? bufaloExistente.sexo;
             bufaloExistente.dataNasc = dataNasc ?? bufaloExistente.dataNasc;

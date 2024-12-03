@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 // Documento Aninhado Zootecnico
 const zootecnicoSchema = new mongoose.Schema({
+    peso: Number,
     comprimentoCorporal: Number,
     circuferenciaCorporal: Number,
     alturaCernelha: Number,
@@ -26,7 +27,6 @@ const bufaloSchema = new mongoose.Schema({
     idCriadouro: Number,
     nome: String,
     idade: Number,
-    peso: Number,
     raca: String,
     sexo: String,
     dataNasc: Date,

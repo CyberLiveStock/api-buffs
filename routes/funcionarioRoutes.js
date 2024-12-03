@@ -17,5 +17,8 @@ funcionarioRoutes.put("/funcionario/:id", funcionarioController.updateFuncionari
 //Endpoint: Listar um Funcionario especifico
 funcionarioRoutes.get("/funcionario/:id", funcionarioController.getOneFuncionario);
 
+//Endpoint: Inativar um Funcionario especifico
+funcionarioRoutes.put("/funcionario/:id", funcionarioController.inativarFuncionario);
+
 
 export default funcionarioRoutes

@@ -60,6 +60,27 @@ class funcionarioService {
             console.log(error)
         }
     }
+
+
+    //Método para inativar o Usuario
+    async inativarFuncionario(id) {
+        try {
+            const resultado = await Funcionario.findByIdAndUpdate(
+                id, // ID do funcionário
+                { status: "Inativo" }, // Atualiza o status para "Inativo"
+                { new: true } // Retorna o documento atualizado
+            );
+    
+            if (resultado) {
+                console.log(`O status do funcionário com ID: ${id} foi alterado para "Inativo".`);
+            } else {
+                console.log(`Funcionário com o ID: ${id} não encontrado.`);
+            }
+        } catch (error) {
+            console.error("Erro ao inativar o funcionário:", error);
+        }
+    }
+    
     
 }  
 export default new funcionarioService();

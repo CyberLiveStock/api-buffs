@@ -77,5 +77,19 @@ const getOneFuncionario = async (req, res) => {
     }   
 };
 
+const inativarFuncionario = async (id) => {
+    try {
+        const resultado = await Funcionario.findByIdAndUpdate(
+            id,
+            { status: "Inativo" },
+            { new: true } // Retorna o documento atualizado
+        );
+        return resultado; // Retorna o funcionário atualizado ou null se não encontrado
+    } catch (error) {
+        console.error("Erro ao inativar o funcionário:", error);
+        throw error; // Repassa o erro para ser tratado no controller
+    }
+};
 
-export default { getAllFuncionarios, createFuncionario, deleteFuncionario, updateFuncionario, getOneFuncionario };
+
+export default { getAllFuncionarios, createFuncionario, deleteFuncionario, updateFuncionario, getOneFuncionario, inativarFuncionario};

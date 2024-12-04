@@ -77,5 +77,14 @@ const getOneFinanceiro = async (req, res) => {
     }   
 };
 
+const getCatFinanceiro = async (req, res) => {
+    try {
+        const financeiro = await financeiroService.calcularCatFinanceiro();
+        res.status(200).json(financeiro);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
-export default { getAllFinanceiros, createFinanceiro, deleteFinanceiro, updateFinanceiro, getOneFinanceiro };
+
+export default { getAllFinanceiros, createFinanceiro, deleteFinanceiro, updateFinanceiro, getOneFinanceiro, getCatFinanceiro };

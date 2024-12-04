@@ -15,7 +15,10 @@ financeiroRoutes.delete("/financeiro/:id", financeiroController.deleteFinanceiro
 financeiroRoutes.put("/financeiro/:id", financeiroController.updateFinanceiro);
 
 //Endpoint: Listar um financeiro especifico
-financeiroRoutes.get("/bufinanceirofalo/:id", financeiroController.getOneFinanceiro);
+financeiroRoutes.get("/financeiro/:id", financeiroController.getOneFinanceiro);
+
+//Endpoint: 
+financeiroRoutes.get("/financeiroCat", financeiroController.getCatFinanceiro);
 
 
 export default financeiroRoutes
